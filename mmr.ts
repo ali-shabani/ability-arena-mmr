@@ -29,9 +29,7 @@ export function calculateMMRs(mmrs: number[]) {
       return Math.max(100, Math.abs(diff[rank])) * gainPercent[rank];
     }
 
-    return (
-      (1 - Math.min(edgeMMR, diff[rank]) / edgeMMR) * 100 * gainPercent[rank]
-    );
+    return (1 - Math.min(1, diff[rank]) / edgeMMR) * 100 * gainPercent[rank];
   }
 
   function loseMMR(rank: number) {
